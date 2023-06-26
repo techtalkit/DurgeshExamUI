@@ -1,0 +1,14 @@
+<!-- <p>navbar works!</p> -->
+<mat-toolbar color="primary">
+    <a routerLink="/" mat-icon-button class="example-icon"><mat-icon>menu_book</mat-icon></a>
+    <span>Examportal</span>
+    <span class="example-spacer"></span>
+    <a *ngIf="!isLoggedIn" routerLink="/login" mat-icon-button class="example-icon favorite-icon">Login</a>
+    <a *ngIf="!isLoggedIn" routerLink="/signup" mat-icon-button class="example-icon mr20 ml20">Register</a>
+    <a *ngIf="isLoggedIn" mat-icon-button class="example-icon mr20 ml20" routerLink="/admin/profile">
+        {{user}}
+    </a>
+    <a (click)="logout()" *ngIf="isLoggedIn" mat-icon-button class="example-icon mr20 ml20">
+        Logout
+    </a>
+</mat-toolbar>
