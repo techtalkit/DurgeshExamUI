@@ -31,6 +31,7 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ViewCategoriesComponent,
     AddCategoryComponent,
     ViewQuizzesComponent,
-    AddQuizComponent
+    AddQuizComponent,
+    UpdateQuizComponent
   ],
   imports: [
     BrowserModule,
