@@ -33,6 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/vi
     ViewQuizzesComponent,
     AddQuizComponent,
     UpdateQuizComponent,
-    ViewQuizQuestionsComponent
+    ViewQuizQuestionsComponent,
+    AddQuestionComponent
   ],
   imports: [
     BrowserModule,
