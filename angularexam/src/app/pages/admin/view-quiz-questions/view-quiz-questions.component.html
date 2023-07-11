@@ -29,6 +29,10 @@
                             <p class="mt20"><b>Correct Answer:</b> {{q.answer}}</p>
                           </div>
                 </mat-card-content>
+                <mat-card-action>
+                    <button mat-raised-button color="warn" class="mr20" (click)="deleteQuestion(q.quesId)">Delete</button>
+                    <button mat-raised-button color="primary">Update</button>
+                </mat-card-action>
             </mat-card>
         </div>
     </div>
