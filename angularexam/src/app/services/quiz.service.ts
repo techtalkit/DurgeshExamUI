@@ -27,5 +27,9 @@ export class QuizService {
   public updateQuiz(quiz:any){
     return this._http.put(`${baseUrl}/quiz/`,quiz);
   }
+  //Get Quizzes By Category
+  public getQuizzesByCategory(cid:number){
+    return this._http.get(`${baseUrl}/quiz/category/${cid}`);
+  }
 
 }
