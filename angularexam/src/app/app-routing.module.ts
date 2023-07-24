@@ -19,6 +19,7 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstantiateExpr } from '@angular/compiler';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 const routes: Routes = [
   {
@@ -91,8 +92,13 @@ const routes: Routes = [
         {
           path: 'instructions/:qid',
           component: InstructionsComponent
-        }
+        },
     ]
+  },
+  {
+    path: 'start/:qid',
+    component: StartComponent,
+    canActivate:[NormalGuard]
   }
 ];
 
