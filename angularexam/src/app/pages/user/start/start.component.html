@@ -11,26 +11,29 @@
              <h1 class="mt20">Ongoing Quiz: <b>{{questions[0].quiz.title}}</b></h1>
              <mat-card *ngFor="let q of questions;let i = index" class="mt20">
                   <mat-card-content>
-                    <p [innerHTML]="q.content"></p>
+                    <p><b>Q{{i+1}}.</b><span [innerHTML]="q.content" class="ml10"></span></p>
                     <mat-divider></mat-divider>
                     <div class="row mt20">
                         <div class="col-md-6">
-                            <input type="radio" [value]="q.option1" [name]="i">{{q.option1}}
+                            <input type="radio" [value]="q.option1" [name]="''+i" [(ngModel)]="q.givenAnswer">{{q.option1}}
                         </div>
                         <div class="col-md-6">
-                            <input type="radio" [value]="q.option2" [name]="i">{{q.option2}}
+                            <input type="radio" [value]="q.option2" [name]="''+i" [(ngModel)]="q.givenAnswer">{{q.option2}}
                         </div>
                     </div>
                     <div class="row mt20">
                         <div class="col-md-6">
-                            <input type="radio" [value]="q.option3" [name]="i">{{q.option3}}
+                            <input type="radio" [value]="q.option3" [name]="''+i" [(ngModel)]="q.givenAnswer">{{q.option3}}
                         </div>
                         <div class="col-md-6">
-                            <input type="radio" [value]="q.option4" [name]="i">{{q.option4}}
+                            <input type="radio" [value]="q.option4" [name]="''+i" [(ngModel)]="q.givenAnswer">{{q.option4}}
                         </div>
                     </div>
                   </mat-card-content>
              </mat-card>
+             <div class="container text-center mt20">
+                <button (click)="submitQuiz()" mat-raised-button color="primary">Submit Quiz</button>
+             </div>
            </ng-container>
          </div>
          <div class="col-md-2">

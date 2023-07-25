@@ -12,6 +12,9 @@ import Swal from 'sweetalert2';
 export class StartComponent implements OnInit {
   qid:number|undefined;
   questions:any|undefined;
+  marksGot:number=0;
+  correctAnswers:number=0;
+  attempted:number=0;
   constructor(private locationSt:LocationStrategy,
     private _route:ActivatedRoute,
     private _question:QuestionService) { }
@@ -25,8 +28,11 @@ export class StartComponent implements OnInit {
   loadQuestions(){
     this._question.getQuestionsOfQuizOfTest(this.qid).subscribe(
       (data:any)=>{
-        console.log(data);
         this.questions=data;
+        this.questions.forEach((q:any)=>{
+          q['givenAnswer']='';
+        })
+        console.log(this.questions);
       },
       (error)=>{
         console.log(error);
@@ -40,6 +46,28 @@ export class StartComponent implements OnInit {
        this.locationSt.onPopState(()=>{
         history.pushState(null,location.href);
        })
+  }
+  submitQuiz(){
+    Swal.fire({
+      title: 'Do you want to submit the Quiz?',
+      showCancelButton: true,
+      confirmButtonText: 'Submit',
+      denyButtonText: `Don't save`,
+      icon:'info'
+    }).then((e)=>{
+      if(e.isConfirmed){
+        //calculation
+        this.questions.forEach((q:any)=>{
+          if(q.givenAnswer==q.answer){
+            this.correctAnswers++;
+            let marksSingleQuestion=this.questions[0].quiz.maxMarks/this.questions.length;
+            this.marksGot+=marksSingleQuestion;
+          }
+        });
+        console.log("Correct Answers: "+this.correctAnswers);
+        console.log("Marks Got: "+this.marksGot);
+      }
+    })
   }
 
 }
