@@ -15,6 +15,7 @@ export class StartComponent implements OnInit {
   marksGot:number=0;
   correctAnswers:number=0;
   attempted:number=0;
+  isSubmit:boolean=false;
   constructor(private locationSt:LocationStrategy,
     private _route:ActivatedRoute,
     private _question:QuestionService) { }
@@ -57,15 +58,20 @@ export class StartComponent implements OnInit {
     }).then((e)=>{
       if(e.isConfirmed){
         //calculation
+        this.isSubmit=true;
         this.questions.forEach((q:any)=>{
           if(q.givenAnswer==q.answer){
             this.correctAnswers++;
             let marksSingleQuestion=this.questions[0].quiz.maxMarks/this.questions.length;
             this.marksGot+=marksSingleQuestion;
           }
+          if(q.givenAnswer.trim()!=''){
+              this.attempted++;
+          }
         });
         console.log("Correct Answers: "+this.correctAnswers);
         console.log("Marks Got: "+this.marksGot);
+        console.log("attempted questions "+this.attempted);
       }
     })
   }
