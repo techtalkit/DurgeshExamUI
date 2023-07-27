@@ -16,6 +16,7 @@ export class StartComponent implements OnInit {
   correctAnswers:number=0;
   attempted:number=0;
   isSubmit:boolean=false;
+  timer:any;
   constructor(private locationSt:LocationStrategy,
     private _route:ActivatedRoute,
     private _question:QuestionService) { }
@@ -30,6 +31,7 @@ export class StartComponent implements OnInit {
     this._question.getQuestionsOfQuizOfTest(this.qid).subscribe(
       (data:any)=>{
         this.questions=data;
+        this.timer=this.questions.length*2*60;
         this.questions.forEach((q:any)=>{
           q['givenAnswer']='';
         })

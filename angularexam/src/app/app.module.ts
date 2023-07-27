@@ -38,6 +38,7 @@ import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.com
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartComponent } from './pages/user/start/start.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { StartComponent } from './pages/user/start/start.component';
   imports: [
     BrowserModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatSelectModule,
     MatIconModule,
