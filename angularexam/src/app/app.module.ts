@@ -39,6 +39,7 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartComponent } from './pages/user/start/start.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule} from "ngx-ui-loader";
 
 
 @NgModule({
@@ -69,6 +70,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   imports: [
     BrowserModule,
     MatSlideToggleModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true,
+    }),
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatSelectModule,
