@@ -84,11 +84,14 @@ export class StartComponent implements OnInit {
     return `${mm} min:${ss} sec`;
   }
   evalQuiz(){
-    // this.isSubmit=true;
+     this.isSubmit=true;
     //call to server to check questions
     this._question.evalQuiz(this.questions).subscribe(
-      (data)=>{
+      (data:any)=>{
         console.log(data);
+        this.marksGot=data.marksGot;
+        this.correctAnswers=data.correctAnswers;
+        this.attempted=data.attempted;
       },
       (error)=>{
         console.log(error);
